@@ -12,7 +12,7 @@ def menu(request,id):
     if id:
     #path = request.path
         restaurant = Restaurant.objects.get(id=id)
-        return render_to_response('menu.html',locals())
+        return render_to_response('menu.html', RequestContext(request, locals()))
     else:
         return HttpResponseRedirect("/restaurants_list")
 def meta(request):
