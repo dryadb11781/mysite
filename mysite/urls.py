@@ -21,7 +21,7 @@ from restaurants.views import menu, meta, list_restaurants, comment
 
 urlpatterns = [
     #url(r'^admin/', include(admin.site.urls)),
-  url(r'^medias/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'medias'}), 
+  url(r'^medias/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'medias'}),
 
 
     url(r'^admin/', admin.site.urls),
@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^login/', login),
     url(r'^logout/', logout),
     url(r'^accounts/register/', register),
+    url(r'^$', index),
 
 
 ]
