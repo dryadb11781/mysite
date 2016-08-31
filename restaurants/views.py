@@ -8,11 +8,11 @@ from django.template import RequestContext
 from restaurants.forms import CommentForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-def menu(request,id):
-    if id:
+def menu(request,restaurant_id):
+    if restaurant_id:
     #path = request.path
-        restaurant = Restaurant.objects.get(id=id)
-        return HttpResponseRedirect("/menu/")
+        restaurant = Restaurant.objects.get(id=restaurant_id)
+        return render_to_response('menu.html', RequestContext(request, locals()))
     else:
         return HttpResponseRedirect("/restaurants_list")
 def meta(request):
