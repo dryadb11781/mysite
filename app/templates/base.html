@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+      <title>{% block title %}{% endblock %}</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+      <style>
+      th { text-align: center; }
+      div.center_padding {
+          text-align: center;
+          padding: 128px 15px;
+      }
+      </style>
+    </head>
+    <body>
+
+
+
+      <nav >
+
+
+         <a href="/restaurants_list" type="button" class="btn btn-primary" style="width:auto" >餐廳列表</a>
+        {% if request.user.is_authenticated %}
+          {{ request.user }}
+          <a href="/logout/" type="button" class="btn btn-success">登出</a>
+          {% else %}
+          <a href="/login/" type="button" class="btn btn-info">登入</a>
+          <a href="/accounts/register/" type="button" class="btn btn-warning">註冊</a>
+          {% endif %}
+        </nav>
+        <br></br>
+
+
+          <div style="text-align:center;">
+          　<div style="margin:0 auto;">
+            <h2> {% block h2 %}{% endblock %}</h2>
+            {% block content %}{% endblock %}
+          </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+      </body>
+
+    </html>
